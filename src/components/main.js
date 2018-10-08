@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { fetchPOD } from '../actions/pod.js';
 
+import DateInput from './date-input.js';
+
 import '../styles/main.css';
 
 class Main extends React.Component {
@@ -32,6 +34,7 @@ class Main extends React.Component {
         <img src={this.props.hdurl} alt="NASA's APOD"></img>
         <p>{this.props.explanation}</p>
         <p>Photo Credit: {this.props.copyright}</p>
+        <DateInput />
       </main>
     );
   }
