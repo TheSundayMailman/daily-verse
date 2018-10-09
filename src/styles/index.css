@@ -7,5 +7,6 @@ html, body, #root {
 }
 
 body {
+  color: white;
   background-color: black;
 }

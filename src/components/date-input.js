@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 
 import { fetchPOD } from '../actions/pod.js';
 
-import '../styles/date-input.css';
-
 const moment = require('moment');
 
 class DateInput extends React.Component {
@@ -54,7 +52,7 @@ class DateInput extends React.Component {
 
   render() {
     return (
-      <nav>
+      <React.Fragment>
         {this.renderDateError()}
         <form onSubmit={e => this.submitDate(e)}>
           <label htmlFor="userDate">Pick a day</label>
@@ -71,7 +69,7 @@ class DateInput extends React.Component {
             type="submit"
           />
         </form>
-      </nav>
+      </React.Fragment>
     );
   }
 }
