@@ -1,11 +1,15 @@
 import React from 'react';
 
+import DateInput from './date-input.js';
 import Main from './main.js';
 
 class App extends React.Component {
   render() {
     return (
-      <Main />
+      <main>
+        <DateInput />
+        <Main />
+      </main>
     );
   }
 }

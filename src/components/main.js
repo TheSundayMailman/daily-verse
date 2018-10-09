@@ -1,49 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchPOD } from '../actions/pod.js';
-
-import DateInput from './date-input.js';
-
 import '../styles/main.css';
 
 class Main extends React.Component {
-  componentDidMount() {
-    const userDate = '2017-12-31';
-    this.props.dispatch(fetchPOD(userDate));
-  }
-
   render() {
     if (this.props.loading) {
       return (
-        <main>
-          <p>Image loading...</p>
-        </main>
+        <p>Image loading...</p>
       );
     } else if (this.props.media_type === 'video') {
       return (
-        <main>
-          <p>APOD that day was a video...</p>
-          <DateInput />
-        </main>
+        <p>APOD on this day was a video...</p>
       );
     } else if (!this.props.url) {
       return (
-        <main>
-          <p>APOD that day was not found...</p>
-          <DateInput />
-        </main>
+        <p>APOD on this day was not found...</p>
       );
     }
     return (
-      <main>
+      <React.Fragment>
         <h1>{this.props.title}</h1>
         <p>{this.props.date}</p>
         <p>{this.props.explanation}</p>
-        <p>Photo Credit: {this.props.copyright}</p>
-        <DateInput />
+        <p>Copyright: {this.props.copyright}</p>
         <img src={this.props.hdurl} alt="NASA's APOD"></img>
-      </main>
+      </React.Fragment>
     );
   }
 }

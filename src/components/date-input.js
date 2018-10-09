@@ -12,6 +12,12 @@ class DateInput extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const userDate = '2017-12-31';
+    this.props.dispatch(fetchPOD(userDate))
+    .then(() => this.setState({ userDate }));
+  }
+
   submitDate(e) {
     e.preventDefault();
     const current = new Date(this.state.userDate);
