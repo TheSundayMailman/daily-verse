@@ -23,7 +23,15 @@ class Main extends React.Component {
     } else if (this.props.media_type === 'video') {
       return (
         <main>
-          <p>APOD on {this.props.date} was a video...</p>
+          <p>APOD that day was a video...</p>
+          <DateInput />
+        </main>
+      );
+    } else if (!this.props.url) {
+      return (
+        <main>
+          <p>APOD that day was not found...</p>
+          <DateInput />
         </main>
       );
     }
@@ -31,10 +39,10 @@ class Main extends React.Component {
       <main>
         <h1>{this.props.title}</h1>
         <p>{this.props.date}</p>
-        <img src={this.props.hdurl} alt="NASA's APOD"></img>
         <p>{this.props.explanation}</p>
         <p>Photo Credit: {this.props.copyright}</p>
         <DateInput />
+        <img src={this.props.hdurl} alt="NASA's APOD"></img>
       </main>
     );
   }
