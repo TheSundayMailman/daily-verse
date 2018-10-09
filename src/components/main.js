@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import '../styles/main.css';
 
+const moment = require('moment');
+
 class Main extends React.Component {
   render() {
     if (this.props.loading) {
@@ -18,10 +20,13 @@ class Main extends React.Component {
         <p>APOD on this day was not found...</p>
       );
     }
+
+    let date = moment(this.props.date).format('MMMM Do YYYY');
+
     return (
       <React.Fragment>
         <h1>{this.props.title}</h1>
-        <p>{this.props.date}</p>
+        <p>{date}</p>
         <p>{this.props.explanation}</p>
         <p>Copyright: {this.props.copyright}</p>
         <img src={this.props.hdurl} alt="NASA's APOD"></img>
