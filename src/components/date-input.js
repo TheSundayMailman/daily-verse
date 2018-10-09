@@ -1,7 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
-import { fetchPOD } from '../actions/pod.js'
+import { fetchPOD } from '../actions/pod.js';
+
+import '../styles/date-input.css';
 
 const moment = require('moment');
 
@@ -52,24 +54,24 @@ class DateInput extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-      {this.renderDateError()}
-      <form onSubmit={e => this.submitDate(e)}>
-        <label htmlFor="userDate">Pick a day</label>
-        <input
-          type="date"
-          id="userDate"
-          min="1995-06-16"
-          max={moment().format('YYYY-MM-DD')}
-          placeholder="MM/DD/YYYY"
-          defaultValue={this.state.inputDate}
-          onChange={e => this.setState( { inputDate: e.currentTarget.value })}
-        />
-        <input
-          type="submit"
-        />
-      </form>
-      </React.Fragment>
+      <nav>
+        {this.renderDateError()}
+        <form onSubmit={e => this.submitDate(e)}>
+          <label htmlFor="userDate">Pick a day</label>
+          <input
+            type="date"
+            id="userDate"
+            min="1995-06-16"
+            max={moment().format('YYYY-MM-DD')}
+            placeholder="MM/DD/YYYY"
+            defaultValue={this.state.inputDate}
+            onChange={e => this.setState( { inputDate: e.currentTarget.value })}
+          />
+          <input
+            type="submit"
+          />
+        </form>
+      </nav>
     );
   }
 }

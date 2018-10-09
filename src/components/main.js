@@ -24,13 +24,18 @@ class Main extends React.Component {
     let date = moment(this.props.date).format('MMMM Do YYYY');
 
     return (
-      <React.Fragment>
+      <main style={{
+        background: `url(${this.props.hdurl}) no-repeat center center fixed`,
+        backgroundSize: 'cover',
+        WebkitBackgroundSize: 'cover',
+        MozBackgroundSize: 'cover',
+        OBackgroundSize: 'cover'
+      }}>
         <h1>{this.props.title}</h1>
         <p>{date}</p>
         <p>{this.props.explanation}</p>
         <p>Copyright: {this.props.copyright}</p>
-        <img src={this.props.hdurl} alt="NASA's APOD"></img>
-      </React.Fragment>
+      </main>
     );
   }
 }

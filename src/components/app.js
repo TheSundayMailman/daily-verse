@@ -6,10 +6,10 @@ import Main from './main.js';
 class App extends React.Component {
   render() {
     return (
-      <main>
+      <React.Fragment>
         <DateInput />
         <Main />
-      </main>
+      </React.Fragment>
     );
   }
 }
