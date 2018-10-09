@@ -26,7 +26,7 @@ class DateInput extends React.Component {
     // Determine if date is invalid or out of range.
     // This is for browsers that does not supprt HTML5's <input type="date" /> tag.
     const userDate = moment(this.state.inputDate).format('YYYY-MM-DD');
-    const minDate = moment('1996-06-16').format('YYYY-MM-DD'); // smallest date allowed
+    const minDate = moment('1995-06-16').format('YYYY-MM-DD'); // smallest date allowed
     const maxDate = moment().format('YYYY-MM-DD'); // largest date allowed, aka today
   
     let invalid = moment(userDate).format('YYYY-MM-DD');
@@ -55,7 +55,7 @@ class DateInput extends React.Component {
       <React.Fragment>
         {this.renderDateError()}
         <form onSubmit={e => this.submitDate(e)}>
-          <label htmlFor="userDate">Pick a day</label>
+          <label htmlFor="userDate">Pick a day </label>
           <input
             type="date"
             id="userDate"

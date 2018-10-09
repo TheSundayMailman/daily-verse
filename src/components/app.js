@@ -10,7 +10,7 @@ const moment = require('moment');
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { hidden: false };
+    this.state = { hideDisplay: false };
   }
 
   render() {
@@ -30,9 +30,14 @@ class Main extends React.Component {
       );
     } else if (!this.props.url) {
       return (
-        <main>
+        <main style={{
+          background: `url(${require('../assets/not-found.gif')}) center center / cover no-repeat fixed`,
+          WebkitBackgroundSize: 'cover',
+          MozBackgroundSize: 'cover',
+          OBackgroundSize: 'cover'
+        }}>
           <DateInput />
-          <p>APOD on this day was not found...</p>
+          <p>APOD was not published on this day...</p>
         </main>
       );
     }
@@ -41,8 +46,7 @@ class Main extends React.Component {
 
     return (
       <main style={{
-        background: `url(${this.props.url}) no-repeat center center fixed`,
-        backgroundSize: 'cover',
+        background: `url(${this.props.hdurl}) center center / cover no-repeat fixed`,
         WebkitBackgroundSize: 'cover',
         MozBackgroundSize: 'cover',
         OBackgroundSize: 'cover'
