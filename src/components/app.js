@@ -19,6 +19,29 @@ class Main extends React.Component {
     );
   }
 
+  renderImageBackground() {
+    let imageUrl = this.props.hdurl ? this.props.hdurl : require('../assets/not-found.gif');
+    if (this.props.media_type === 'video') imageUrl = null;
+    return (
+      <div className="image-background" style={{
+        background: `url(${imageUrl}) center center / cover no-repeat fixed`,
+        WebkitBackgroundSize: 'cover',
+        MozBackgroundSize: 'cover',
+        OBackgroundSize: 'cover',
+        position: 'fixed',
+        top: '0',
+        right: '0',
+        bottom: '0',
+        left: '0',
+        height: '100%',
+        width: '100%',
+        pointerEvents: 'none',
+        zIndex: '-99'
+      }}>
+      </div>
+    );
+  }
+
   renderVideoBackground() {
     if (this.props.media_type === 'video') {
       let videoId = this.props.url.slice(-17, -6);
@@ -35,18 +58,11 @@ class Main extends React.Component {
 
   render() {
     let isHidden = this.state.hideDisplay ? 'hidden' : 'visible';
-    let imageUrl = this.props.hdurl ? this.props.hdurl : require('../assets/not-found.gif');
-    if (this.props.media_type === 'video') imageUrl = null;
-
     return (
-      <main style={{
-        background: `url(${imageUrl}) center center / cover no-repeat fixed`,
-        WebkitBackgroundSize: 'cover',
-        MozBackgroundSize: 'cover',
-        OBackgroundSize: 'cover'
-      }}>
-        {this.renderToggleButton()}
+      <main>
+        {this.renderImageBackground()}
         {this.renderVideoBackground()}
+        {this.renderToggleButton()}
         <header className={isHidden}><DateInput /></header>
         <section className={isHidden}><ContentDetails /></section>
       </main>

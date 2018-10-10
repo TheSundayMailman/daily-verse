@@ -14,6 +14,19 @@ main {
   transition: opacity 1s linear;
 }
 
+/* Image background settings */
+.image-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  z-index: -99;
+}
+
 /* Video background settings */
 .video-background {
   position: fixed;

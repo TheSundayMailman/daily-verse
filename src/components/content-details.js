@@ -29,7 +29,7 @@ class ContentDetails extends React.Component {
     }
     if (!this.props.url) {
       return (
-        <p>APOD was not published on this day...</p>
+        <p>Whoopsies! Looks like an APOD was not published on this day...</p>
       );
     }
 

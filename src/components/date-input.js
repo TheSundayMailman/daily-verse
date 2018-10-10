@@ -10,12 +10,13 @@ class DateInput extends React.Component {
     super(props);
     this.state = {
       inputDate: this.props.date,
-      errorMessage: null
+      dateErrorMessage: null
     };
   }
 
   componentDidMount() {
-    const todayDate = moment().format('YYYY-MM-DD');
+    // const todayDate = '2018-10-09'; // activate if app should start at a specific date
+    const todayDate = moment().format('YYYY-MM-DD'); // activate if app should start dynamically at today's date
     this.props.dispatch(fetchPOD(todayDate))
     .then(() => this.setState({ inputDate: todayDate }));
   }
@@ -35,25 +36,25 @@ class DateInput extends React.Component {
     );
 
     if (outOfRange) {
-      this.setState({ errorMessage: 'Date must be between today and June 16, 1995.' });
+      this.setState({ dateErrorMessage: 'Date must be between today and June 16, 1995.' });
     } else if (invalid === 'Invalid date') {
-      this.setState({ errorMessage: 'Please enter a valid date.' });
+      this.setState({ dateErrorMessage: 'Please enter a valid date.' });
     } else {
       this.props.dispatch(fetchPOD(userDate))
-      .then(() => this.setState({ errorMessage: null }));
+      .then(() => this.setState({ dateErrorMessage: null }));
     }
   }
 
-  renderDateError() {
-    if (this.state.errorMessage) {
-      return (<div className="date-error">{this.state.errorMessage}</div>);
+  renderDateErrorMessage() {
+    if (this.state.dateErrorMessage) {
+      return (<div className="date-error-message">{this.state.dateErrorMessage}</div>);
     }
   }
 
   render() {
     return (
       <React.Fragment>
-        {this.renderDateError()}
+        {this.renderDateErrorMessage()}
         <form onSubmit={e => this.submitDate(e)}>
           <label htmlFor="userDate">Pick a day </label>
           <input
