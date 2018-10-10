@@ -20,8 +20,9 @@ class Main extends React.Component {
   }
 
   render() {
-    let isHidden = this.state.hideDisplay ? 'hidden' : 'visible'
-    if (!this.props.url || this.props.media_type === 'video') {
+    let isHidden = this.state.hideDisplay ? 'hidden' : 'visible';
+  
+    if (!this.props.url) {
       return (
         <main style={{
           background: `url(${require('../assets/not-found.gif')}) center center / cover no-repeat fixed`,

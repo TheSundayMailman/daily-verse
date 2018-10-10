@@ -15,7 +15,8 @@ class DateInput extends React.Component {
   }
 
   componentDidMount() {
-    const todayDate = moment().format('YYYY-MM-DD');
+    const todayDate = '2018-09-18';
+    // const todayDate = moment().format('YYYY-MM-DD');
     this.props.dispatch(fetchPOD(todayDate))
     .then(() => this.setState({ inputDate: todayDate }));
   }
