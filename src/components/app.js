@@ -19,32 +19,34 @@ class Main extends React.Component {
     );
   }
 
+  renderVideoBackground() {
+    if (this.props.media_type === 'video') {
+      let videoId = this.props.url.slice(-17, -6);
+      let videoUrl = this.props.url + '&autoplay=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
+      return (
+        <div className="video-background">
+          <div className="video-foreground">
+            <iframe title="video" frameBorder="0" height="100%" width="100%" src={videoUrl} allowFullScreen></iframe>
+          </div>
+      </div>
+      )
+    }
+  }
+
   render() {
     let isHidden = this.state.hideDisplay ? 'hidden' : 'visible';
-  
-    if (!this.props.url) {
-      return (
-        <main style={{
-          background: `url(${require('../assets/not-found.gif')}) center center / cover no-repeat fixed`,
-          WebkitBackgroundSize: 'cover',
-          MozBackgroundSize: 'cover',
-          OBackgroundSize: 'cover'
-        }}>
-          {this.renderToggleButton()}
-          <header className={isHidden}><DateInput /></header>
-          <section className={isHidden}><ContentDetails /></section>
-        </main>
-      );
-    }
+    let imageUrl = this.props.hdurl ? this.props.hdurl : require('../assets/not-found.gif');
+    if (this.props.media_type === 'video') imageUrl = null;
 
     return (
       <main style={{
-        background: `url(${this.props.hdurl}) center center / cover no-repeat fixed`,
+        background: `url(${imageUrl}) center center / cover no-repeat fixed`,
         WebkitBackgroundSize: 'cover',
         MozBackgroundSize: 'cover',
         OBackgroundSize: 'cover'
       }}>
         {this.renderToggleButton()}
+        {this.renderVideoBackground()}
         <header className={isHidden}><DateInput /></header>
         <section className={isHidden}><ContentDetails /></section>
       </main>
