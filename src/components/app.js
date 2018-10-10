@@ -2,10 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import DateInput from './date-input.js';
+import ContentDetails from './content-details.js';
 
 import '../styles/app.css';
-
-const moment = require('moment');
 
 class Main extends React.Component {
   constructor(props) {
@@ -13,22 +12,16 @@ class Main extends React.Component {
     this.state = { hideDisplay: false };
   }
 
+  renderToggleButton() {
+    let buttonText = this.state.hideDisplay ? '+' : '-';
+    return (
+      <button onClick={() => this.setState({ hideDisplay: !this.state.hideDisplay })}>{buttonText}</button>
+    );
+  }
+
   render() {
-    if (this.props.loading) {
-      return (
-        <main>
-          <DateInput />
-          <p>Image loading...</p>
-        </main>
-      );
-    } else if (this.props.media_type === 'video') {
-      return (
-        <main>
-          <DateInput />
-          <p>APOD on this day was a video...</p>
-        </main>
-      );
-    } else if (!this.props.url) {
+    let isHidden = this.state.hideDisplay ? 'hidden' : 'visible'
+    if (!this.props.url || this.props.media_type === 'video') {
       return (
         <main style={{
           background: `url(${require('../assets/not-found.gif')}) center center / cover no-repeat fixed`,
@@ -36,13 +29,12 @@ class Main extends React.Component {
           MozBackgroundSize: 'cover',
           OBackgroundSize: 'cover'
         }}>
-          <DateInput />
-          <p>APOD was not published on this day...</p>
+          {this.renderToggleButton()}
+          <header className={isHidden}><DateInput /></header>
+          <section className={isHidden}><ContentDetails /></section>
         </main>
       );
     }
-
-    let date = moment(this.props.date).format('MMMM Do YYYY');
 
     return (
       <main style={{
@@ -51,12 +43,9 @@ class Main extends React.Component {
         MozBackgroundSize: 'cover',
         OBackgroundSize: 'cover'
       }}>
-        <DateInput />
-        <h1>{this.props.title}</h1>
-        <p>{date}</p>
-        <p>{this.props.explanation}</p>
-        <p>Copyright: {this.props.copyright}</p>
-        <a target="_blank" rel="noopener noreferrer" href={this.props.hdurl} >Get full image here</a>
+        {this.renderToggleButton()}
+        <header className={isHidden}><DateInput /></header>
+        <section className={isHidden}><ContentDetails /></section>
       </main>
     );
   }
