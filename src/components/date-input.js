@@ -11,26 +11,25 @@ class DateInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputDate: this.props.date,
+      currentDate: this.props.date,
       dateErrorMessage: null
     };
   }
 
   // Load APOD of either today or date in store where last left off
   componentDidMount() {
-    // const todayDate = this.props.date ? this.props.date : moment().format('YYYY-MM-DD');
-    const todayDate = '2018-10-01';
+    const todayDate = this.props.date ? this.props.date : moment().format('YYYY-MM-DD');
     this.props.dispatch(fetchPOD(todayDate))
-    .then(() => this.setState({ inputDate: todayDate }));
+    .then(() => this.setState({ currentDate: todayDate }));
   }
 
-  submitDate(e) {
+  submitUserDate(e) {
     e.preventDefault();
 
     // Determine if date is invalid or out of range.
     // This is for browsers that does not supprt HTML5's <input type="date" /> tag.
-    const userDate = moment(this.state.inputDate).format('YYYY-MM-DD');
-    const minDate = moment('1995-06-16').format('YYYY-MM-DD'); // smallest date allowed
+    const userDate = moment(this.state.currentDate).format('YYYY-MM-DD');
+    const minDate = '1995-06-16'; // smallest date allowed
     const maxDate = moment().format('YYYY-MM-DD'); // largest date allowed, aka today
   
     let invalid = moment(userDate).format('YYYY-MM-DD');
@@ -43,9 +42,17 @@ class DateInput extends React.Component {
     } else if (invalid === 'Invalid date') {
       this.setState({ dateErrorMessage: 'Please enter a valid date.' });
     } else {
+      // All validations passed, date is good.
       this.props.dispatch(fetchPOD(userDate))
+      .then(() => this.setState({ currentDate: userDate }))
       .then(() => this.setState({ dateErrorMessage: null }));
     }
+  }
+
+  submitClickDate(clickDate) {
+    this.props.dispatch(fetchPOD(clickDate))
+    .then(() => this.setState({ currentDate: clickDate }))
+    .then(() => this.setState({ dateErrorMessage: null }));
   }
 
   renderDateErrorMessage() {
@@ -54,23 +61,36 @@ class DateInput extends React.Component {
     }
   }
 
-  renderSubmitButtons() {
+  renderGoButton() {
     if (this.props.loading) {
-      return (
-        <input type="submit" value="Go" disabled />
-      );
-    } else {
-      return (
-        <input type="submit" value="Go" />
-      );
+      return (<input type="submit" value="Go" disabled />);
     }
+    return (<input type="submit" value="Go" />);
+  }
+
+  renderPrevButton() {
+    let prevDate = moment(this.state.currentDate).subtract(1, 'days').format('YYYY-MM-DD');
+    let minDate = '1995-06-16';
+    if (this.props.loading || moment(prevDate).isBefore(moment(minDate))) {
+      return (<button disabled>Prev</button>);
+    }
+    return (<button onClick={() => this.submitClickDate(prevDate)}>Prev</button>);
+  }
+
+  renderNextButton() {
+    let nextDate = moment(this.state.currentDate).add(1, 'days').format('YYYY-MM-DD');
+    let maxDate = moment().format('YYYY-MM-DD');
+    if (this.props.loading || moment(nextDate).isAfter(moment(maxDate))) {
+      return (<button disabled>Next</button>);
+    }
+    return (<button onClick={() => this.submitClickDate(nextDate)}>Next</button>);
   }
 
   render() {
     return (
-      <React.Fragment>
+      <div className="date-input">
         {this.renderDateErrorMessage()}
-        <form className="date-input" onSubmit={e => this.submitDate(e)}>
+        <form onSubmit={e => this.submitUserDate(e)}>
           <label htmlFor="userDate">Pick a day </label>
           <br />
           <input
@@ -79,13 +99,16 @@ class DateInput extends React.Component {
             min="1995-06-16"
             max={moment().format('YYYY-MM-DD')}
             placeholder="MM/DD/YYYY"
-            defaultValue={this.state.inputDate}
-            onChange={e => this.setState( { inputDate: e.currentTarget.value })}
+            defaultValue={this.state.currentDate}
+            onChange={e => this.setState( { currentDate: e.currentTarget.value })}
           />
           <br />
-          {this.renderSubmitButtons()}
+          {this.renderGoButton()}
         </form>
-      </React.Fragment>
+        <hr />
+        {this.renderPrevButton()}
+        {this.renderNextButton()}
+      </div>
     );
   }
 }

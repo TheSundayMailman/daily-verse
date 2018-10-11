@@ -6,6 +6,10 @@
   padding: 1rem;
   font-family: Avenir, Helvetica, sans-serif;
 }
+.date-input hr {
+  border: 1px solid white;
+}
+
 @media all and (max-width: 600px) {
   .date-input {
     width: 50%;

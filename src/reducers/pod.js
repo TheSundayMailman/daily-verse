@@ -20,7 +20,8 @@ export function podReducer(state=initialState, action) {
   if (action.type === FETCH_POD_REQUEST) {
     return {
       ...state,
-      loading: true
+      loading: true,
+      error: null
     };
   }
   if (action.type === FETCH_POD_SUCCESS) {
@@ -40,6 +41,7 @@ export function podReducer(state=initialState, action) {
   if (action.type === FETCH_POD_ERROR) {
     return {
       ...state,
+      loading: false,
       error: true,
     };
   }
