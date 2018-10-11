@@ -32,6 +32,7 @@ export const fetchPODError = error => {
 };
 
 export const fetchPOD = userDate => (dispatch, getState) => {
+  dispatch(fetchPODRequest());
   return fetch(
     `${API_BASE_URL}?api_key=${REACT_APP_NASA_API_KEY}&date=${userDate}&hd=true`,
     { method: 'GET' }

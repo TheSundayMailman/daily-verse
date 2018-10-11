@@ -12,13 +12,6 @@ class DashBoard extends React.Component {
     this.state = { hideDisplay: false };
   }
 
-  renderToggleButton() {
-    let buttonText = this.state.hideDisplay ? '+' : '-';
-    return (
-      <button onClick={() => this.setState({ hideDisplay: !this.state.hideDisplay })}>{buttonText}</button>
-    );
-  }
-
   renderImageBackground() {
     let imageUrl = this.props.hdurl ? this.props.hdurl : require('../assets/not-found.gif');
     if (this.props.media_type === 'video') imageUrl = null;
@@ -54,6 +47,13 @@ class DashBoard extends React.Component {
       </div>
       )
     }
+  }
+
+  renderToggleButton() {
+    let buttonText = this.state.hideDisplay ? '+' : '-';
+    return (
+      <button onClick={() => this.setState({ hideDisplay: !this.state.hideDisplay })}>{buttonText}</button>
+    );
   }
 
   render() {

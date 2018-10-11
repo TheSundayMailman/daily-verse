@@ -34,6 +34,7 @@ export function podReducer(state=initialState, action) {
       url: action.url,
       hdurl: action.hdurl,
       loading: false,
+      error: null
     };
   }
   if (action.type === FETCH_POD_ERROR) {

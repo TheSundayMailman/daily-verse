@@ -25,14 +25,28 @@ class ContentDetails extends React.Component {
 
     if (this.props.loading) {
       return (
-        <p>Image loading...</p>
+        <div className="content-info">
+          <p>Image loading...</p>
+        </div>
+      );
+    }
+    if (this.props.error) {
+      return (
+        <div className="content-info">
+          <h1>Whoopsies!</h1>
+          <hr />
+          <p>Looks like NASA's database is under maintenance. Please try again later.</p>
+          <Link to="/">Home</Link>
+        </div>
       );
     }
     if (!this.props.url) {
       return (
-        <div className="no-content">
-          <p>Whoopsies! Looks like an APOD was not published on this day.</p>
-          <p>Please try another date.</p>
+        <div className="content-info">
+          <h1>Whoopsies!</h1>
+          <hr />
+          <p>Looks like an APOD was not published on this day. Please try another date.</p>
+          <Link to="/">Home</Link>
         </div>
       );
     }

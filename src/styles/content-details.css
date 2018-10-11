@@ -44,13 +44,3 @@
     display: none;
   }
 }
-
-.no-content {
-  position: absolute;
-  top: 50%;
-  margin: 0 auto;
-  padding: 1rem;
-  background: rgba(0,0,0,0.3);
-  font-family: Avenir, Helvetica, sans-serif;
-  text-align: center;
-}

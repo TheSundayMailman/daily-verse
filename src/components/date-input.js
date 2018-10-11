@@ -54,6 +54,18 @@ class DateInput extends React.Component {
     }
   }
 
+  renderSubmitButtons() {
+    if (this.props.loading) {
+      return (
+        <input type="submit" value="Go" disabled />
+      );
+    } else {
+      return (
+        <input type="submit" value="Go" />
+      );
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -71,10 +83,7 @@ class DateInput extends React.Component {
             onChange={e => this.setState( { inputDate: e.currentTarget.value })}
           />
           <br />
-          <input
-            type="submit"
-            value="Go"
-          />
+          {this.renderSubmitButtons()}
         </form>
       </React.Fragment>
     );
@@ -82,7 +91,10 @@ class DateInput extends React.Component {
 }
 
 const mapStateToProps = (state, props) => {
-  return { date: state.date };
+  return {
+    date: state.date,
+    loading: state.loading
+  };
 };
 
 export default connect(mapStateToProps)(DateInput);
