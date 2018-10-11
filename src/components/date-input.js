@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { fetchPOD } from '../actions/pod.js';
 
+import '../styles/date-input.css';
+
 const moment = require('moment');
 
 class DateInput extends React.Component {
@@ -14,9 +16,10 @@ class DateInput extends React.Component {
     };
   }
 
+  // Load APOD of either today or date in store where last left off
   componentDidMount() {
-    // const todayDate = '2018-10-09'; // activate if app should start at a specific date
-    const todayDate = moment().format('YYYY-MM-DD'); // activate if app should start dynamically at today's date
+    // const todayDate = this.props.date ? this.props.date : moment().format('YYYY-MM-DD');
+    const todayDate = '2018-10-01';
     this.props.dispatch(fetchPOD(todayDate))
     .then(() => this.setState({ inputDate: todayDate }));
   }
@@ -55,8 +58,9 @@ class DateInput extends React.Component {
     return (
       <React.Fragment>
         {this.renderDateErrorMessage()}
-        <form onSubmit={e => this.submitDate(e)}>
+        <form className="date-input" onSubmit={e => this.submitDate(e)}>
           <label htmlFor="userDate">Pick a day </label>
+          <br />
           <input
             type="date"
             id="userDate"
@@ -66,8 +70,10 @@ class DateInput extends React.Component {
             defaultValue={this.state.inputDate}
             onChange={e => this.setState( { inputDate: e.currentTarget.value })}
           />
+          <br />
           <input
             type="submit"
+            value="Go"
           />
         </form>
       </React.Fragment>

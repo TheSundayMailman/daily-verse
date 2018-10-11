@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import '../styles/content-details.css';
 
@@ -7,14 +8,14 @@ const moment = require('moment');
 
 class ContentDetails extends React.Component {
   renderSource() {
-    if (this.props.media_type === 'video') {
-      return (
-        <a target="_blank" rel="noopener noreferrer" href={this.props.url} >See full video</a>
-      );
-    }
     if (this.props.media_type === 'image') {
       return (
-        <a target="_blank" rel="noopener noreferrer" href={this.props.hdurl} >See full image</a>
+        <a target="_blank" rel="noopener noreferrer" href={this.props.hdurl} >Link to Image</a>
+      );
+    }
+    if (this.props.media_type === 'video') {
+      return (
+        <a target="_blank" rel="noopener noreferrer" href={this.props.url} >Link to Video</a>
       );
     }
   }
@@ -29,18 +30,24 @@ class ContentDetails extends React.Component {
     }
     if (!this.props.url) {
       return (
-        <p>Whoopsies! Looks like an APOD was not published on this day...</p>
+        <div className="no-content">
+          <p>Whoopsies! Looks like an APOD was not published on this day.</p>
+          <p>Please try another date.</p>
+        </div>
       );
     }
 
     return (
-      <React.Fragment>
+      <div className="content-info">
         <h1>{this.props.title}</h1>
         <p>{date}</p>
+        <hr />
         <p>{this.props.explanation}</p>
         <p>Copyright: {this.props.copyright}</p>
+        <hr />
         {this.renderSource()}
-      </React.Fragment>
+        <Link to="/">Home</Link>
+      </div>
     );
   }
 }

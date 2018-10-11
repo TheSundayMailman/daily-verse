@@ -1,0 +1,14 @@
+.date-input {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: rgba(0,0,0,0.3);
+  padding: 1rem;
+  font-family: Avenir, Helvetica, sans-serif;
+}
+@media all and (max-width: 600px) {
+  .date-input {
+    width: 50%;
+    padding: .5rem;
+  }
+}
