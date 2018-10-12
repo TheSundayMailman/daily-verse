@@ -2,6 +2,24 @@ main {
   height: 100%;
 }
 
+.view-button {
+  position: fixed;
+  margin: 0.5rem;
+  width: 25px;
+  height: 25px;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 50%;
+  z-index: 1;
+}
+.view-button:focus {
+  outline: 0;
+}
+.view-button:hover {
+  cursor: pointer;
+}
+
 /* Fade out hidden elements */
 .hidden {
   opacity: 0;

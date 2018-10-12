@@ -1,15 +1,54 @@
 .date-input {
-  position: absolute;
-  top: 30px;
+  position: fixed;
   left: 0;
   background: rgba(0,0,0,0.3);
   padding: 1rem;
   font-family: Avenir, Helvetica, sans-serif;
 }
+.date-input form {
+  line-height: 0.6;
+}
+#userDate {
+  margin-bottom: 0.25rem;
+  max-width: 145px;
+  color: white;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid white;
+  border-radius: 3px;
+}
+#userDate:focus {
+  outline: 0;
+}
+.date-input label {
+  display: block;
+  margin-top: 40px;
+}
 .date-input hr {
   border: 1px solid white;
 }
-
+.submit-button {
+  margin-right: 0.25rem;
+  padding: 0.25rem;
+  color: white;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid white;
+  border-radius: 3px;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+.submit-button:focus {
+  outline: 0;
+}
+.submit-button:hover {
+  cursor: pointer;
+}
+.submit-button:disabled {
+  color: gray;
+  border: 1px solid gray;
+}
+.date-error-message {
+  color: red;
+}
 @media all and (max-width: 600px) {
   .date-input {
     width: 50%;

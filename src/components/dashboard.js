@@ -52,7 +52,7 @@ class DashBoard extends React.Component {
   renderToggleButton() {
     let buttonText = this.state.hideDisplay ? '+' : '-';
     return (
-      <button onClick={() => this.setState({ hideDisplay: !this.state.hideDisplay })}>{buttonText}</button>
+      <button className="view-button" onClick={() => this.setState({ hideDisplay: !this.state.hideDisplay })}>{buttonText}</button>
     );
   }
 

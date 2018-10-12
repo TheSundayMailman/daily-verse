@@ -9,19 +9,15 @@ const moment = require('moment');
 class ContentDetails extends React.Component {
   renderSource() {
     if (this.props.media_type === 'image') {
-      return (
-        <a target="_blank" rel="noopener noreferrer" href={this.props.hdurl} >Link to Image</a>
-      );
+      return (<a target="_blank" rel="noopener noreferrer" href={this.props.hdurl} >Link to Image</a>);
     }
     if (this.props.media_type === 'video') {
-      return (
-        <a target="_blank" rel="noopener noreferrer" href={this.props.url} >Link to Video</a>
-      );
+      return (<a target="_blank" rel="noopener noreferrer" href={this.props.url} >Link to Video</a>);
     }
   }
 
   render() {
-    let date = moment(this.props.date).format('MMMM Do YYYY');
+    let date = moment(this.props.date).format('MMMM Do, YYYY');
 
     if (this.props.loading) {
       return (
@@ -45,7 +41,7 @@ class ContentDetails extends React.Component {
         <div className="content-info">
           <h1>Whoopsies!</h1>
           <hr />
-          <p>Looks like an APOD was not published on this day. Please try another date.</p>
+          <p>Looks like an APOD was not published on {date}. Please try another date.</p>
           <Link to="/">Home</Link>
         </div>
       );

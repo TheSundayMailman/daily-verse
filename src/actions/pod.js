@@ -9,11 +9,12 @@ export const fetchPODRequest = () => {
 };
 
 export const FETCH_POD_SUCCESS = 'FETCH_POD_SUCCESS';
-export const fetchPODSuccess = result => {
+export const fetchPODSuccess = (result, userDate) => {
+  let date = result.date ? result.date : userDate;
   let copyright = result.copyright ? result.copyright : 'Public Domain';
   return {
     type: FETCH_POD_SUCCESS,
-    date: result.date,
+    date,
     title: result.title,
     copyright,
     explanation: result.explanation,
@@ -38,6 +39,6 @@ export const fetchPOD = userDate => (dispatch, getState) => {
     { method: 'GET' }
   )
   .then(res => res.json())
-  .then(result => dispatch(fetchPODSuccess(result)))
+  .then(result => dispatch(fetchPODSuccess(result, userDate)))
   .catch(err =>  dispatch(fetchPODError(err)));
 };

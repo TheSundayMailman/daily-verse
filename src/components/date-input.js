@@ -33,9 +33,7 @@ class DateInput extends React.Component {
     const maxDate = moment().format('YYYY-MM-DD'); // largest date allowed, aka today
   
     let invalid = moment(userDate).format('YYYY-MM-DD');
-    let outOfRange = (
-      moment(userDate).isBefore(moment(minDate)) || moment(userDate).isAfter(moment(maxDate))
-    );
+    let outOfRange = moment(userDate).isBefore(moment(minDate)) || moment(userDate).isAfter(moment(maxDate));
 
     if (outOfRange) {
       this.setState({ dateErrorMessage: 'Date must be between today and June 16, 1995.' });
@@ -55,17 +53,18 @@ class DateInput extends React.Component {
     .then(() => this.setState({ dateErrorMessage: null }));
   }
 
-  renderDateErrorMessage() {
+  renderLabel() {
     if (this.state.dateErrorMessage) {
-      return (<div className="date-error-message">{this.state.dateErrorMessage}</div>);
+      return (<label htmlFor="userDate" className="date-error-message">{this.state.dateErrorMessage}</label>);
     }
+    return (<label htmlFor="userDate">Jump to date:</label>)
   }
 
   renderGoButton() {
     if (this.props.loading) {
-      return (<input type="submit" value="Go" disabled />);
+      return (<input className="submit-button" type="submit" value="Go" disabled />);
     }
-    return (<input type="submit" value="Go" />);
+    return (<input className="submit-button" type="submit" value="Go" />);
   }
 
   renderPrevButton() {
@@ -76,9 +75,14 @@ class DateInput extends React.Component {
       outOfRange = moment(prevDate).isBefore(moment(minDate))
     }
     if (this.props.loading || outOfRange) {
-      return (<button disabled>Prev</button>);
+      return (<button className="submit-button" disabled>{'<<'}</button>);
     }
-    return (<button onClick={() => this.submitClickDate(prevDate)}>Prev</button>);
+    return (<button className="submit-button" onClick={() => this.submitClickDate(prevDate)}>{'<<'}</button>);
+  }
+
+  renderRandomButton() {
+    // feature to come...
+    return (<button className="submit-button" disabled>Random</button>);
   }
 
   renderNextButton() {
@@ -89,17 +93,16 @@ class DateInput extends React.Component {
       outOfRange = moment(nextDate).isAfter(moment(maxDate))
     }
     if (this.props.loading || outOfRange) {
-      return (<button disabled>Next</button>);
+      return (<button className="submit-button" disabled>{'>>'}</button>);
     }
-    return (<button onClick={() => this.submitClickDate(nextDate)}>Next</button>);
+    return (<button className="submit-button" onClick={() => this.submitClickDate(nextDate)}>{'>>'}</button>);
   }
 
   render() {
     return (
       <div className="date-input">
-        {this.renderDateErrorMessage()}
         <form onSubmit={e => this.submitUserDate(e)}>
-          <label htmlFor="userDate">Pick a day </label>
+          {this.renderLabel()}
           <br />
           <input
             type="date"
@@ -115,6 +118,7 @@ class DateInput extends React.Component {
         </form>
         <hr />
         {this.renderPrevButton()}
+        {this.renderRandomButton()}
         {this.renderNextButton()}
       </div>
     );
@@ -124,7 +128,8 @@ class DateInput extends React.Component {
 const mapStateToProps = (state, props) => {
   return {
     date: state.date,
-    loading: state.loading
+    loading: state.loading,
+    error: state.error
   };
 };
 
