@@ -54,7 +54,7 @@ class ContentDetails extends React.Component {
     return (
       <div className="content-info">
         <h1>{this.props.title}</h1>
-        <p>{date}</p>
+        <h2>{date}</h2>
         <hr />
         <p>{this.props.explanation}</p>
         <p>Copyright: {this.props.copyright}</p>

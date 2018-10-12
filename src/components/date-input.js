@@ -44,14 +44,14 @@ class DateInput extends React.Component {
     } else {
       // All validations passed, date is good.
       this.props.dispatch(fetchPOD(userDate))
-      .then(() => this.setState({ currentDate: userDate }))
+      .then(() => this.setState({ currentDate: this.props.date }))
       .then(() => this.setState({ dateErrorMessage: null }));
     }
   }
 
   submitClickDate(clickDate) {
     this.props.dispatch(fetchPOD(clickDate))
-    .then(() => this.setState({ currentDate: clickDate }))
+    .then(() => this.setState({ currentDate: this.props.date }))
     .then(() => this.setState({ dateErrorMessage: null }));
   }
 
@@ -69,18 +69,26 @@ class DateInput extends React.Component {
   }
 
   renderPrevButton() {
-    let prevDate = moment(this.state.currentDate).subtract(1, 'days').format('YYYY-MM-DD');
-    let minDate = '1995-06-16';
-    if (this.props.loading || moment(prevDate).isBefore(moment(minDate))) {
+    let prevDate, minDate, outOfRange;
+    if (this.props.date) {
+      prevDate = moment(this.props.date).subtract(1, 'days').format('YYYY-MM-DD');
+      minDate = '1995-06-16';
+      outOfRange = moment(prevDate).isBefore(moment(minDate))
+    }
+    if (this.props.loading || outOfRange) {
       return (<button disabled>Prev</button>);
     }
     return (<button onClick={() => this.submitClickDate(prevDate)}>Prev</button>);
   }
 
   renderNextButton() {
-    let nextDate = moment(this.state.currentDate).add(1, 'days').format('YYYY-MM-DD');
-    let maxDate = moment().format('YYYY-MM-DD');
-    if (this.props.loading || moment(nextDate).isAfter(moment(maxDate))) {
+    let nextDate, maxDate, outOfRange;
+    if (this.props.date) {
+      nextDate = moment(this.props.date).add(1, 'days').format('YYYY-MM-DD');
+      maxDate = moment().format('YYYY-MM-DD');
+      outOfRange = moment(nextDate).isAfter(moment(maxDate))
+    }
+    if (this.props.loading || outOfRange) {
       return (<button disabled>Next</button>);
     }
     return (<button onClick={() => this.submitClickDate(nextDate)}>Next</button>);
@@ -99,7 +107,7 @@ class DateInput extends React.Component {
             min="1995-06-16"
             max={moment().format('YYYY-MM-DD')}
             placeholder="MM/DD/YYYY"
-            defaultValue={this.state.currentDate}
+            value={this.state.currentDate}
             onChange={e => this.setState( { currentDate: e.currentTarget.value })}
           />
           <br />
