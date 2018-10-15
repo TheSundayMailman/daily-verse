@@ -63,6 +63,10 @@ class DateInput extends React.Component {
     if (this.props.loading) {
       return (<input className="submit-button" type="submit" value="Go" disabled />);
     }
+    if (this.state.currentDate &&
+      (moment(this.state.currentDate).format('YYYY-MM-DD') === moment(this.props.date).format('YYYY-MM-DD'))) {
+      return (<input className="submit-button" type="submit" value="Go" disabled />);
+    }
     return (<input className="submit-button" type="submit" value="Go" />);
   }
 
@@ -126,7 +130,7 @@ class DateInput extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    date: state.date,
+    date: state.currentPOD.date,
     loading: state.loading,
     error: state.error
   };

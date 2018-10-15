@@ -5,13 +5,15 @@ import {
 } from '../actions/pod.js';
 
 const initialState = {
-  date: '',
-  title: '',
-  copyright: '',
-  explanation: '',
-  media_type: '',
-  url: '',
-  hdurl: '',
+  currentPOD: {
+    date: '',
+    title: '',
+    copyright: '',
+    explanation: '',
+    media_type: '',
+    url: '',
+    hdurl: ''
+  },
   loading: true,
   error: null
 };
@@ -27,13 +29,7 @@ export function podReducer(state=initialState, action) {
   if (action.type === FETCH_POD_SUCCESS) {
     return {
       ...state,
-      date: action.date,
-      title: action.title,
-      copyright: action.copyright,
-      explanation: action.explanation,
-      media_type: action.media_type,
-      url: action.url,
-      hdurl: action.hdurl,
+      currentPOD: {...action.currentPOD},
       loading: false,
       error: null
     };

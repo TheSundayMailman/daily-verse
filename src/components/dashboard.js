@@ -13,11 +13,12 @@ class DashBoard extends React.Component {
   }
 
   renderBackground() {
-    if (this.props.media_type === 'video') return this.renderVideoBackground();
+    if (this.props.currentPOD.media_type === 'video') return this.renderVideoBackground();
     else return this.renderImageBackground();
   }
   renderImageBackground() {
-    let imageUrl = this.props.hdurl ? this.props.hdurl : require('../assets/not-found.gif');
+    let { hdurl } = this.props.currentPOD;
+    let imageUrl = hdurl ? hdurl : require('../assets/not-found.gif');
     return (
       <div className="image-background" style={{
         background: `url(${imageUrl}) center center / cover no-repeat fixed`,
@@ -38,14 +39,15 @@ class DashBoard extends React.Component {
     );
   }
   renderVideoBackground() {
+    let { url } = this.props.currentPOD;
     let videoId, videoUrl;
     // determine if url is youtube and if comes packed with param '?rel=0'
-    if (this.props.url.includes('youtube') && this.props.url.slice(-6) === '?rel=0') {
-      videoId = this.props.url.slice(-17, -6);
-      videoUrl = this.props.url + '&autoplay=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
+    if (url.includes('youtube') && url.slice(-6) === '?rel=0') {
+      videoId = url.slice(-17, -6);
+      videoUrl = url + '&autoplay=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
     } else {
-      videoId = this.props.url.slice(-11);
-      videoUrl = this.props.url + '?rel=0&autoplay=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
+      videoId = url.slice(-11);
+      videoUrl = url + '?rel=0&autoplay=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
     }
     return (
       <div className="video-background">
@@ -78,13 +80,7 @@ class DashBoard extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    date: state.date,
-    title: state.title,
-    copyright: state.copyright,
-    explanation: state.explanation,
-    media_type: state.media_type,
-    url: state.url,
-    hdurl: state.hdurl,
+    currentPOD: state.currentPOD,
     loading: state.loading,
     error: state.error
   };

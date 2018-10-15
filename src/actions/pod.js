@@ -14,13 +14,15 @@ export const fetchPODSuccess = (result, inputDate) => {
   let copyright = result.copyright ? result.copyright : 'Public Domain';
   return {
     type: FETCH_POD_SUCCESS,
-    date,
-    title: result.title,
-    copyright,
-    explanation: result.explanation,
-    media_type: result.media_type,
-    url: result.url,
-    hdurl: result.hdurl,
+    currentPOD: {
+      date,
+      title: result.title,
+      copyright,
+      explanation: result.explanation,
+      media_type: result.media_type,
+      url: result.url,
+      hdurl: result.hdurl,
+    }
   };
 };
 

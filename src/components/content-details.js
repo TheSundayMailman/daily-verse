@@ -8,25 +8,36 @@ const moment = require('moment');
 
 class ContentDetails extends React.Component {
   renderSource() {
-    if (this.props.media_type === 'image') {
-      return (<a target="_blank" rel="noopener noreferrer" href={this.props.hdurl} >Link to Image</a>);
+    let { media_type, url, hdurl } = this.props.currentPOD;
+    if (media_type === 'image') {
+      return (<a target="_blank" rel="noopener noreferrer" href={hdurl} >Link to Image</a>);
     }
-    if (this.props.media_type === 'video') {
-      return (<a target="_blank" rel="noopener noreferrer" href={this.props.url} >Link to Video</a>);
+    if (media_type === 'video') {
+      return (<a target="_blank" rel="noopener noreferrer" href={url} >Link to Video</a>);
     }
   }
 
   render() {
-    let date = moment(this.props.date).format('MMMM Do, YYYY');
+    let {
+      date,
+      url,
+      title,
+      explanation,
+      copyright,
+      loading,
+      error
+    } = this.props.currentPOD;
 
-    if (this.props.loading) {
+    date = moment(date).format('MMMM Do, YYYY');
+
+    if (loading) {
       return (
         <div className="content-info">
           <p>Image loading...</p>
         </div>
       );
     }
-    if (this.props.error) {
+    if (error) {
       return (
         <div className="content-info">
           <h1>Whoopsies!</h1>
@@ -36,7 +47,7 @@ class ContentDetails extends React.Component {
         </div>
       );
     }
-    if (!this.props.url) {
+    if (!url) {
       return (
         <div className="content-info">
           <h1>Whoopsies!</h1>
@@ -49,11 +60,11 @@ class ContentDetails extends React.Component {
 
     return (
       <div className="content-info">
-        <h1>{this.props.title}</h1>
+        <h1>{title}</h1>
         <h2>{date}</h2>
         <hr />
-        <p>{this.props.explanation}</p>
-        <p>Copyright: {this.props.copyright}</p>
+        <p>{explanation}</p>
+        <p>Copyright: {copyright}</p>
         <hr />
         {this.renderSource()}
         <Link to="/">Home</Link>
@@ -64,13 +75,7 @@ class ContentDetails extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    date: state.date,
-    title: state.title,
-    copyright: state.copyright,
-    explanation: state.explanation,
-    media_type: state.media_type,
-    url: state.url,
-    hdurl: state.hdurl,
+    currentPOD: state.currentPOD,
     loading: state.loading,
     error: state.error
   };
