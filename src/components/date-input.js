@@ -56,18 +56,18 @@ class DateInput extends React.Component {
     if (this.state.dateErrorMessage) {
       return (<label htmlFor="userDate" className="date-error-message">{this.state.dateErrorMessage}</label>);
     }
-    return (<label htmlFor="userDate">Jump to date:</label>)
+    return (<label htmlFor="userDate">Warp to date:</label>)
   }
 
   renderGoButton() {
     if (this.props.loading) {
-      return (<input className="submit-button" type="submit" value="Go" disabled />);
+      return (<input className="submit-button" type="submit" value="Warp!" disabled />);
     }
     if (this.state.currentDate &&
       (moment(this.state.currentDate).format('YYYY-MM-DD') === moment(this.props.date).format('YYYY-MM-DD'))) {
-      return (<input className="submit-button" type="submit" value="Go" disabled />);
+      return (<input className="submit-button" type="submit" value="Warp!" disabled />);
     }
-    return (<input className="submit-button" type="submit" value="Go" />);
+    return (<input className="submit-button" type="submit" value="Warp!" />);
   }
 
   renderPrevButton() {

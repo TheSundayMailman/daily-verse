@@ -4,13 +4,14 @@ main {
 
 .view-button {
   position: fixed;
-  margin: 0.5rem;
-  width: 25px;
-  height: 25px;
+  margin: 1rem;
+  padding: 0.25rem;
   color: white;
-  background-color: transparent;
+  background: rgba(0,0,0,0.3);
   border: 1px solid white;
-  border-radius: 50%;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  line-height: 0.8rem;
   z-index: 1;
 }
 .view-button:focus {
