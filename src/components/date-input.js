@@ -84,8 +84,17 @@ class DateInput extends React.Component {
   }
 
   renderRandomButton() {
-    // feature to come...
-    return (<button className="submit-button" disabled>Random</button>);
+    if (this.props.loading) {
+      return (<button className="submit-button" disabled>Random</button>);
+    }
+    const randomDate = this.generateRandomDate();
+    return (<button className="submit-button" onClick={() => this.submitClickDate(randomDate)}>Random</button>);
+  }
+  generateRandomDate() {
+    let start = new Date(1995, 5, 16); // start date, which is 1995-06-16
+    let end = new Date(); // end date, which is today
+    let random = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+    return moment(random).format('YYYY-MM-DD');
   }
 
   renderNextButton() {
