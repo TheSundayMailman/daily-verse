@@ -9,8 +9,8 @@ export const fetchPODRequest = () => {
 };
 
 export const FETCH_POD_SUCCESS = 'FETCH_POD_SUCCESS';
-export const fetchPODSuccess = (result, userDate) => {
-  let date = result.date ? result.date : userDate;
+export const fetchPODSuccess = (result, inputDate) => {
+  let date = result.date ? result.date : inputDate;
   let copyright = result.copyright ? result.copyright : 'Public Domain';
   return {
     type: FETCH_POD_SUCCESS,
@@ -32,13 +32,13 @@ export const fetchPODError = error => {
   };
 };
 
-export const fetchPOD = userDate => (dispatch, getState) => {
+export const fetchPOD = inputDate => (dispatch, getState) => {
   dispatch(fetchPODRequest());
   return fetch(
-    `${API_BASE_URL}?api_key=${REACT_APP_NASA_API_KEY}&date=${userDate}&hd=true`,
+    `${API_BASE_URL}?api_key=${REACT_APP_NASA_API_KEY}&date=${inputDate}&hd=true`,
     { method: 'GET' }
   )
   .then(res => res.json())
-  .then(result => dispatch(fetchPODSuccess(result, userDate)))
+  .then(result => dispatch(fetchPODSuccess(result, inputDate)))
   .catch(err =>  dispatch(fetchPODError(err)));
 };

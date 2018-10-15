@@ -32,12 +32,11 @@ class DateInput extends React.Component {
     const minDate = '1995-06-16'; // smallest date allowed
     const maxDate = moment().format('YYYY-MM-DD'); // largest date allowed, aka today
   
-    let invalid = moment(userDate).format('YYYY-MM-DD');
-    let outOfRange = moment(userDate).isBefore(moment(minDate)) || moment(userDate).isAfter(moment(maxDate));
+    const outOfRange = moment(userDate).isBefore(moment(minDate)) || moment(userDate).isAfter(moment(maxDate));
 
     if (outOfRange) {
-      this.setState({ dateErrorMessage: 'Date must be between today and June 16, 1995.' });
-    } else if (invalid === 'Invalid date') {
+      this.setState({ dateErrorMessage: 'Date must be between today and June 16th, 1995.' });
+    } else if (userDate === 'Invalid date') {
       this.setState({ dateErrorMessage: 'Please enter a valid date.' });
     } else {
       // All validations passed, date is good.

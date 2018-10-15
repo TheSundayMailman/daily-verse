@@ -12,9 +12,12 @@ class DashBoard extends React.Component {
     this.state = { hideDisplay: false };
   }
 
+  renderBackground() {
+    if (this.props.media_type === 'video') return this.renderVideoBackground();
+    else return this.renderImageBackground();
+  }
   renderImageBackground() {
     let imageUrl = this.props.hdurl ? this.props.hdurl : require('../assets/not-found.gif');
-    if (this.props.media_type === 'video') imageUrl = null;
     return (
       <div className="image-background" style={{
         background: `url(${imageUrl}) center center / cover no-repeat fixed`,
@@ -34,22 +37,26 @@ class DashBoard extends React.Component {
       </div>
     );
   }
-
   renderVideoBackground() {
-    if (this.props.media_type === 'video') {
-      let videoId = this.props.url.slice(-17, -6);
-      let videoUrl = this.props.url + '&autoplay=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
-      return (
-        <div className="video-background">
-          <div className="video-foreground">
-            <iframe title="video" frameBorder="0" height="100%" width="100%" src={videoUrl} allowFullScreen></iframe>
-          </div>
-      </div>
-      )
+    let videoId, videoUrl;
+    // determine if url is youtube and if comes packed with param '?rel=0'
+    if (this.props.url.includes('youtube') && this.props.url.slice(-6) === '?rel=0') {
+      videoId = this.props.url.slice(-17, -6);
+      videoUrl = this.props.url + '&autoplay=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
+    } else {
+      videoId = this.props.url.slice(-11);
+      videoUrl = this.props.url + '?rel=0&autoplay=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
     }
+    return (
+      <div className="video-background">
+        <div className="video-foreground">
+          <iframe title="video" frameBorder="0" height="100%" width="100%" src={videoUrl} allowFullScreen></iframe>
+        </div>
+    </div>
+    )
   }
 
-  renderToggleButton() {
+  renderDisplayButton() {
     let buttonText = this.state.hideDisplay ? '+' : '-';
     return (
       <button className="view-button" onClick={() => this.setState({ hideDisplay: !this.state.hideDisplay })}>{buttonText}</button>
@@ -60,9 +67,8 @@ class DashBoard extends React.Component {
     let isHidden = this.state.hideDisplay ? 'hidden' : 'visible';
     return (
       <main>
-        {this.renderImageBackground()}
-        {this.renderVideoBackground()}
-        {this.renderToggleButton()}
+        {this.renderBackground()}
+        {this.renderDisplayButton()}
         <div className={isHidden}><DateInput /></div>
         <div className={isHidden}><ContentDetails /></div>
       </main>
