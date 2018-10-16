@@ -44,10 +44,10 @@ class DashBoard extends React.Component {
     // determine if url is youtube and if comes packed with param '?rel=0'
     if (url.includes('youtube') && url.slice(-6) === '?rel=0') {
       videoId = url.slice(-17, -6);
-      videoUrl = url + '&autoplay=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
+      videoUrl = url + '&autoplay=1&mute=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
     } else {
       videoId = url.slice(-11);
-      videoUrl = url + '?rel=0&autoplay=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
+      videoUrl = url + '?rel=0&autoplay=1&mute=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
     }
     return (
       <div className="video-background">
