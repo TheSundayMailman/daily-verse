@@ -6,6 +6,10 @@ import ContentDetails from './content-details.js';
 
 import '../styles/dashboard.css';
 
+// Media Query Listener
+// for loading either HD or normal images depending on whether viewport is 800px or greater
+const mql = window.matchMedia('(min-width: 800px)');
+
 class DashBoard extends React.Component {
   constructor(props) {
     super(props);
@@ -17,8 +21,12 @@ class DashBoard extends React.Component {
     else return this.renderImageBackground();
   }
   renderImageBackground() {
-    let { hdurl } = this.props.currentPOD;
-    let imageUrl = hdurl ? hdurl : require('../assets/not-found.gif');
+    let { url, hdurl } = this.props.currentPOD;
+    let imageUrl = url;
+    // if viewport is greater than 800px and image has HD url, use HD url
+    if (mql.matches && hdurl) imageUrl = hdurl;
+    // if no image url at all, use 'not-found.gif'
+    if (!url || !hdurl) imageUrl = require('../assets/not-found.gif');
     return (
       <div className="image-background" style={{
         background: `url(${imageUrl}) center center / cover no-repeat fixed`,
@@ -39,15 +47,16 @@ class DashBoard extends React.Component {
     );
   }
   renderVideoBackground() {
-    let { url } = this.props.currentPOD;
-    let videoId, videoUrl;
-    // determine if url is youtube and if comes packed with param '?rel=0'
-    if (url.includes('youtube') && url.slice(-6) === '?rel=0') {
-      videoId = url.slice(-17, -6);
-      videoUrl = url + '&autoplay=1&mute=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
-    } else {
-      videoId = url.slice(-11);
-      videoUrl = url + '?rel=0&autoplay=1&mute=1&controls=0&showinfo=0&autohide=1&version=3&loop=1&playlist=' + videoId;
+    let videoUrl = this.props.currentPOD.url;
+    // determine if url is youtube and if comes packed with param '?rel=0' or '?rel=0&showinfo=0'
+    if (videoUrl.includes('youtube.com')) {
+      const videoId = videoUrl.slice(30, 41);
+      if (!videoUrl.includes('?rel=0')) videoUrl += '?rel=0';
+      if (!videoUrl.includes('&showinfo=0')) videoUrl += '&showinfo=0';
+      videoUrl = videoUrl + '&controls=0&autohide=1&mute=1&autoplay=1&version=3&loop=1&playlist=' + videoId;
+    }
+    if (videoUrl.includes('vimeo.com')) {
+      videoUrl += '&muted=1&autoplay=1&loop=1';
     }
     return (
       <div className="video-background">

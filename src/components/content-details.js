@@ -28,7 +28,13 @@ class ContentDetails extends React.Component {
       error
     } = this.props.currentPOD;
 
+    // formats date for presentation
     date = moment(date).format('MMMM Do, YYYY');
+
+    // remove unecessary lines that NASA left in explanations for publications between 2008 to 2009
+    if (explanation.includes('digg_url')) {
+      explanation = explanation.slice(-(explanation.length), -77);
+    }
 
     if (loading) {
       return (
@@ -52,7 +58,7 @@ class ContentDetails extends React.Component {
         <div className="content-info">
           <h1>Whoopsies!</h1>
           <hr />
-          <p>Looks like an APOD was not published on {date}. Please try another date.</p>
+          <p>Looks like NASA did not publish any content on {date}. Please try another date.</p>
           <Link to="/">Home</Link>
         </div>
       );
