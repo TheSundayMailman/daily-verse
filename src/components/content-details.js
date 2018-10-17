@@ -24,26 +24,24 @@ class ContentDetails extends React.Component {
       title,
       explanation,
       copyright,
-      loading,
-      error
     } = this.props.currentPOD;
 
     // formats date for presentation
     date = moment(date).format('MMMM Do, YYYY');
 
     // remove unecessary lines that NASA left in explanations for publications between 2008 to 2009
-    if (explanation.includes('digg_url')) {
+    if (explanation && explanation.includes('digg_url')) {
       explanation = explanation.slice(-(explanation.length), -78);
     }
 
-    if (loading) {
+    if (this.props.loading) {
       return (
         <article className="content-info">
           <p>Image loading...</p>
         </article>
       );
     }
-    if (error) {
+    if (this.props.error) {
       return (
         <article className="content-info">
           <h1>Whoopsies!</h1>
