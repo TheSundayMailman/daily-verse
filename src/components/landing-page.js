@@ -18,7 +18,7 @@ export function LandingPage(props) {
         <p>Explore</p>
       </div>
     </header>
-    <main>
+    <main className="landing-page">
       <section className="about">
         <h1>Welcome to NASA's Astronomy Picture of the Day!</h1>
         <p>Our universe is full of wonders. It might be overwhelming to see it all.</p>
