@@ -53,8 +53,13 @@ class DashBoard extends React.Component {
       const videoId = videoUrl.slice(30, 41);
       if (!videoUrl.includes('?rel=0')) videoUrl += '?rel=0';
       if (!videoUrl.includes('&showinfo=0')) videoUrl += '&showinfo=0';
+      if (!videoUrl.includes('&controls=0')) videoUrl += '&controls=0';
       // add following parameters to allow autoplay and loop for YouTube videos
-      videoUrl = videoUrl + '&controls=0&autohide=1&mute=1&autoplay=1&version=3&loop=1&playlist=' + videoId;
+      videoUrl = videoUrl + '&autohide=1&mute=1&autoplay=1&version=3&loop=1&playlist=' + videoId;
+      // future consideration:
+      // the following returns just the base youtube url (40 if the url starts with 'http' instead of 'https')
+      // videoUrl = videoUrl.slice(0,41);
+      // from which params can be flexibly added
     }
     if (videoUrl.includes('vimeo.com')) {
       videoUrl += '&muted=1&autoplay=1&loop=1';
