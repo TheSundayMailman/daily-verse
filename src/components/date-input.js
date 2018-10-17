@@ -112,7 +112,7 @@ class DateInput extends React.Component {
 
   render() {
     return (
-      <div className="date-input">
+      <nav className="date-input">
         <form onSubmit={e => this.submitUserDate(e)}>
           {this.renderLabel()}
           <br />
@@ -132,7 +132,7 @@ class DateInput extends React.Component {
         {this.renderPrevButton()}
         {this.renderRandomButton()}
         {this.renderNextButton()}
-      </div>
+      </nav>
     );
   }
 }

@@ -33,39 +33,39 @@ class ContentDetails extends React.Component {
 
     // remove unecessary lines that NASA left in explanations for publications between 2008 to 2009
     if (explanation.includes('digg_url')) {
-      explanation = explanation.slice(-(explanation.length), -77);
+      explanation = explanation.slice(-(explanation.length), -78);
     }
 
     if (loading) {
       return (
-        <div className="content-info">
+        <article className="content-info">
           <p>Image loading...</p>
-        </div>
+        </article>
       );
     }
     if (error) {
       return (
-        <div className="content-info">
+        <article className="content-info">
           <h1>Whoopsies!</h1>
           <hr />
           <p>Looks like NASA's database is under maintenance. Please try again later.</p>
           <Link to="/">Home</Link>
-        </div>
+        </article>
       );
     }
     if (!url) {
       return (
-        <div className="content-info">
+        <article className="content-info">
           <h1>Whoopsies!</h1>
           <hr />
           <p>Looks like NASA did not publish any content on {date}. Please try another date.</p>
           <Link to="/">Home</Link>
-        </div>
+        </article>
       );
     }
 
     return (
-      <div className="content-info">
+      <article className="content-info">
         <h1>{title}</h1>
         <h2>{date}</h2>
         <hr />
@@ -74,7 +74,7 @@ class ContentDetails extends React.Component {
         <hr />
         {this.renderSource()}
         <Link to="/">Home</Link>
-      </div>
+      </article>
     );
   }
 }

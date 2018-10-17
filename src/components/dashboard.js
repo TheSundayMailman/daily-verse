@@ -48,11 +48,12 @@ class DashBoard extends React.Component {
   }
   renderVideoBackground() {
     let videoUrl = this.props.currentPOD.url;
-    // determine if url is youtube and if comes packed with param '?rel=0' or '?rel=0&showinfo=0'
+    // determine if url is YouTube and if comes packed with param '?rel=0' or '?rel=0&showinfo=0'
     if (videoUrl.includes('youtube.com')) {
       const videoId = videoUrl.slice(30, 41);
       if (!videoUrl.includes('?rel=0')) videoUrl += '?rel=0';
       if (!videoUrl.includes('&showinfo=0')) videoUrl += '&showinfo=0';
+      // add following parameters to allow autoplay and loop for YouTube videos
       videoUrl = videoUrl + '&controls=0&autohide=1&mute=1&autoplay=1&version=3&loop=1&playlist=' + videoId;
     }
     if (videoUrl.includes('vimeo.com')) {
@@ -77,7 +78,7 @@ class DashBoard extends React.Component {
   render() {
     let isHidden = this.state.hideDisplay ? 'hidden' : 'visible';
     return (
-      <main>
+      <main className="explore">
         {this.renderBackground()}
         {this.renderDisplayButton()}
         <div className={isHidden}><DateInput /></div>
