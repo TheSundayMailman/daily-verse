@@ -113,6 +113,7 @@ class DateInput extends React.Component {
   render() {
     return (
       <nav className="date-input">
+        <h1><span id="logo">Daily-Verse</span></h1>
         <form onSubmit={e => this.submitUserDate(e)}>
           {this.renderLabel()}
           <br />
