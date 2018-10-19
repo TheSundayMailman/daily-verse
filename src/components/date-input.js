@@ -18,9 +18,11 @@ class DateInput extends React.Component {
 
   // Load APOD of either today or date in store where last left off
   componentDidMount() {
-    const todayDate = this.props.date ? this.props.date : moment().format('YYYY-MM-DD');
-    this.props.dispatch(fetchPOD(todayDate))
-    .then(() => this.setState({ currentDate: todayDate }));
+    if (!this.props.date) {
+      const todayDate = moment().format('YYYY-MM-DD');
+      this.props.dispatch(fetchPOD(todayDate))
+      .then(() => this.setState({ currentDate: todayDate }));
+    }
   }
 
   submitUserDate(e) {
@@ -113,7 +115,7 @@ class DateInput extends React.Component {
   render() {
     return (
       <nav className="date-input">
-        <h1><span id="logo">Daily-Verse</span></h1>
+        <h1><span id="logo">DailyVerse</span></h1>
         <form onSubmit={e => this.submitUserDate(e)}>
           {this.renderLabel()}
           <br />
