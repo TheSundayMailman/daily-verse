@@ -38,3 +38,8 @@ body {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+/* DailyVerse Logo */
+#logo {
+  font-family: 'Days One', sans-serif;
+}
