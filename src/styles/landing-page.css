@@ -1,21 +1,14 @@
+/* LandingPage general settings */
 #logo {
   /* font-family: 'Paytone One', sans-serif; */
   /* font-family: 'Notable', sans-serif; */
   font-family: 'Days One', sans-serif;
 }
-
 .landing-page {
   background: black;
 }
-.landing-page h1 {
-  margin-top: 2.5em;
-  font-size: 3em;
-  text-align: center;
-}
-.landing-page p {
-  font-size: 2em;
-}
 
+/* Nav bar */
 .nav-bar {
   /* position: fixed; */
   top: 0;
@@ -41,6 +34,7 @@
   }
 }
 
+/* Attract */
 .attract-video-container {
   display: flex;
   position: relative;
@@ -98,11 +92,136 @@
   }
 }
 
-#nasa-logo {
-  width: 100%;
-  height: 100%;
+/* Main section begins here */
+main h2 {
+  text-align: center;
 }
 
-footer {
-  background: black;
+/* Intro */
+.intro {
+  padding-top: 5em;
+  padding-bottom: 5em;
+  text-align: center;
+}
+.intro h1 {
+  font-size: 3.5em;
+  text-decoration: underline;
+}
+.intro h2 {
+  font-size: 2.5em;
+}
+@media screen and (max-width: 320px) {
+  .intro {
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+  }
+  .intro h1 {
+    font-size: 2.5em;
+  }
+  .intro h2 {
+    font-size: 1.5em;
+  }
+}
+
+/* About */
+.about {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/220201/pexels-photo-220201.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') center center / cover no-repeat fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+.about #nasa-logo {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* Supported Devices */
+.devices {
+  padding: 2.5em 1em;
+  color: black;
+  background: white;
+}
+.devices .left-col {
+  flex: 65%;
+  padding: 1em;
+}
+.devices .right-col {
+  flex: 35%;
+  padding: 1em;
+}
+.devices img {
+  max-width: 100%;
+}
+.devices p {
+  font-size: 1.5em;
+}
+@media screen and (max-width: 800px) {
+  .devices p {
+    font-size: 1em;
+  }
+}
+
+/* Editor's Picks */
+.editors-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: stretch;
+  padding: 2.5em 1em;
+}
+.editors-item {
+  max-width: 25%;
+  padding: 10px;
+}
+@media screen and (max-width: 1280px) {
+  .editors-item {
+    max-width: 33%;
+  }
+}
+@media screen and (max-width: 640px) {
+  .editors-item {
+    max-width: 50%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .editors-item {
+    max-width: 100%;
+  }
+}
+.editors-item img {
+  width: 100%;
+}
+
+/* Call to Action */
+.action {
+  min-height: 320px;
+  background: url('https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') center center;
+}
+.action h2 {
+  font-size: 4em;
+  text-align: center;
+}
+.action a {
+  display: block;
+  margin: 1.5em auto;
+  padding: 0.5em;
+  max-width: 480px;
+  color: white;
+  background-color: #f13a59;
+  border-radius: 5px;
+  font-size: 1.5em;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  color: black;
+  background: #ddd;
+}
+.footer h2 {
+  text-align: center;
 }

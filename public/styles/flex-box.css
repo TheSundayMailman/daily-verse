@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Column container */
+.flex-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Full columns */
+.full-col {
+  flex: 100%;
+  padding: 20px;
+}
+
+/* Half columns */
+.half-col {
+  flex: 50%;
+  padding: 20px;
+}
+
+/* Thirds columns */
+.third-col {
+  flex: 33%;
+  padding: 20px;
+}
+
+/* Quarter columns */
+.quarter-col {
+  flex: 25%;
+  padding: 20px;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 640px) {
+  .flex-row {
+      flex-flow: column wrap;
+  }
+}
