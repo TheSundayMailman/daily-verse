@@ -38,7 +38,7 @@ class LandingPage extends React.Component {
         <article className="flex-row intro">
           <section className="full-col">
             <h1>Welcome to <span id="logo">DailyVerse</span>!</h1>
-            <h2>Your one-stop-shop to explore NASA's Astronomy Picture of the Day over the past two decades!</h2>
+            <h2>Your one-stop-shop to explore NASA's Astronomy Picture of the Day for the past two decades!</h2>
           </section>
         </article>
 
@@ -70,7 +70,8 @@ class LandingPage extends React.Component {
           <section className="right-col">
             <p><span id="logo">DailyVerse</span> is viewable on all devices.</p>
             <p>Note: This site supports mobile and tablet devices by blocking autoplay videos and using lower resolution image backgrounds as to conserve user's bandwith.</p>
-            <p>For optimal viewing experience, please visit <span id="logo">DailyVerse</span> on a desktop browser. Explore the universe in its full glory.</p>
+            <p>For optimal viewing experience, please visit <span id="logo">DailyVerse</span> on a desktop browser.</p>
+            <p><b>Explore the universe in its full glory.</b></p>
           </section>
         </article>
 
@@ -80,83 +81,107 @@ class LandingPage extends React.Component {
             <p>Need some help getting started? Want some suggestions for cool wallpapers? Here are some favorites in recent memory.</p>
           </section>
           <section className="editors-item">
-            <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
-            <h3>Orbit Jupiter</h3>
-            <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
-            <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            <div className="item-container">
+              <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
+              <h3>Orbit Jupiter</h3>
+              <p>June 7th, 2017. asdfas dfasdfa s dfas dfasdf See what it's like to orbit Jupiter as if you are a satelite.</p>
+              <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            </div>
           </section>
           <section className="editors-item">
-            <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
-            <h3>Orbit Jupiter</h3>
-            <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
-            <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            <div className="item-container">
+              <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
+              <h3>Orbit Jupiter</h3>
+              <p>June 7th, 2017.</p>
+              <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            </div>
           </section>
           <section className="editors-item">
-            <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
-            <h3>Orbit Jupiter</h3>
-            <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
-            <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            <div className="item-container">
+              <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
+              <h3>Orbit Jupiter</h3>
+              <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
+              <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            </div>
           </section>
           <section className="editors-item">
-            <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
-            <h3>Orbit Jupiter</h3>
-            <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
-            <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            <div className="item-container">
+              <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
+              <h3>Orbit Jupiter</h3>
+              <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
+              <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            </div>
           </section>
           <section className="editors-item">
-            <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
-            <h3>Orbit Jupiter</h3>
-            <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
-            <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            <div className="item-container">
+              <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
+              <h3>Orbit Jupiter</h3>
+              <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
+              <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            </div>
           </section>
           <section className="editors-item">
-            <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
-            <h3>Orbit Jupiter</h3>
-            <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
-            <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            <div className="item-container">
+              <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
+              <h3>Orbit Jupiter</h3>
+              <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
+              <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            </div>
           </section>
           <section className="editors-item">
-            <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
-            <h3>Orbit Jupiter</h3>
-            <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
-            <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            <div className="item-container">
+              <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
+              <h3>Orbit Jupiter</h3>
+              <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
+              <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            </div>
           </section>
           <section className="editors-item">
-            <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
-            <h3>Orbit Jupiter</h3>
-            <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
-            <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            <div className="item-container">
+              <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
+              <h3>Orbit Jupiter</h3>
+              <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
+              <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            </div>
           </section>
           <section className="editors-item">
-            <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
-            <h3>Orbit Jupiter</h3>
-            <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
-            <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            <div className="item-container">
+              <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
+              <h3>Orbit Jupiter</h3>
+              <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
+              <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            </div>
           </section>
           <section className="editors-item">
-            <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
-            <h3>Orbit Jupiter</h3>
-            <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
-            <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            <div className="item-container">
+              <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
+              <h3>Orbit Jupiter</h3>
+              <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
+              <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            </div>
           </section>
           <section className="editors-item">
-            <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
-            <h3>Orbit Jupiter</h3>
-            <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
-            <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            <div className="item-container">
+              <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
+              <h3>Orbit Jupiter</h3>
+              <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
+              <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            </div>
           </section>
           <section className="editors-item">
-            <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
-            <h3>Orbit Jupiter</h3>
-            <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
-            <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            <div className="item-container">
+              <img src={require('../assets/editors-pick.jpg')} alt="Editor's Pick" />
+              <h3>Orbit Jupiter</h3>
+              <p>June 7th, 2017. See what it's like to orbit Jupiter as if you are a satelite.</p>
+              <button onClick={() => this.submitEditorDate('2017-06-07')}>Go</button>
+            </div>
           </section>
         </article>
 
         <article className="flex-row action">
           <section className="full-col">
-            <h2>Stay awhile. Relax. Wonder.</h2>
-            <Link to="/explore">Explore.</Link>
+            <h2>Stay awhile. Relax.</h2>
+            <Link to="/explore">Wonder</Link>
           </section>
         </article>
       </main>
