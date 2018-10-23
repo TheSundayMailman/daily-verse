@@ -46,7 +46,7 @@ class LandingPage extends React.Component {
       <React.Fragment>
 
       <nav className="nav-bar">
-        <h1 id="logo">DailyVerse</h1>
+        <h1><span id="logo">DailyVerse</span></h1>
         <Link to="/explore">Explore</Link>
       </nav>
 
@@ -67,7 +67,7 @@ class LandingPage extends React.Component {
         <article className="flex-row intro">
           <section className="full-col">
             <h1>Welcome to <span id="logo">DailyVerse</span>!</h1>
-            <p>Your one-stop-shop to explore NASA's Astronomy Picture of the Day, a daily publication of cosmic factoids for the last two decades!</p>
+            <p>Your one-stop-shop to explore NASA's Astronomy Picture of the Day, a daily publication of cosmic factoids for the past two decades!</p>
           </section>
         </article>
         {/* About */}
@@ -76,18 +76,17 @@ class LandingPage extends React.Component {
             <h2>ABOUT</h2>
             <p>Our universe is full of wonders. It might be overwhelming to see it all. Enter our friendly neighborhood scientists over at NASA.</p>
             <img id="nasa-logo" src={require('../assets/nasa-logo.png')} alt="NASA's logo" />
-            <p>Over the last 20 years, these brilliant folks have been publishing a photo of the cosmos (almost) everyday. Each photo or video also contain a brief tidbit of what we are gazing into. Makes the learning easy!</p>
-            <p>The collection is ever expanding, just like our universe.</p>
+            <p>Over the last 20 years, these brilliant folks have been publishing a photo of the cosmos (almost) everyday. Each photo or video also contain a brief tidbit of what we are gazing into. The collection is ever expanding, just like our universe.</p>
           </section>
           <section className="half-col">
-            <p><span id="logo">DailyVerse</span> is powered by NASA's Astronomy Picture of the Day (aka APOD) API, which can access the entire APOD collection between 1995 and today.</p>
-            <p>Simply pick a day, hit the button, sit back, and enjoy the publication for that date. Or if you are feeling adventurous, hit the "Random" button to jump to a random date.</p>
+            <p><span id="logo">DailyVerse</span> is powered by NASA's Astronomy Picture of the Day (aka APOD) API, which can access the entire archive between 1995 and today.</p>
+            <p>Simply pick a day, hit the button, sit back, and enjoy. If you are feeling adventurous, hit the "Random" button to jump to a random date.</p>
             <p>Links to HD images and videos are always provided. So this is also a great place to get some awesome desktop wallpaper.</p>
           </section>
           <section className="half-col">
-            <p>The entry was published on June 16, 1995. It was a tiny image called "Neutron Star Earth".</p>
+            <p>The first entry was published on June 16, 1995. It was a tiny image called "Neutron Star Earth".</p>
             <img src={require('../assets/1995-06-16.gif')} alt="First ever published content." />
-            <p>Our technology has come a long way since then. Some of the images you encounter are so huge, it might take a second to load. There has been video content as well!</p>
+            <p>Our imaging technology has come a long way since then. In fact, you will likely to encounter images so large that it take a few seconds to drop into the background!</p>
           </section>
         </article>
         {/* Devices, aka The Experience */}
@@ -118,13 +117,27 @@ class LandingPage extends React.Component {
 
       <footer className="flex-row footer">
         <section className="third-col">
-          <p>Content Info</p>
+          <h2><span id="logo">DailyVerse</span></h2>
+          <p>This site is powered by HTML, CSS, and React JS.</p>
+          <p>All images found on <span id="logo">DailyVerse</span> belong to their respective owners as indicated in the "Copyright" section.</p>
+          <p>Astronomy Picture of the Day is provided by NASA's APOD API.</p>
         </section>
         <section className="third-col">
-          <p>Content Info</p>
+          <h2>Links</h2>
+          <p>Visit NASA's site for daily contents! Or be creative and build something by getting your APOD API!</p>
+          <ul>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://apod.nasa.gov/apod/astropix.html">Official Site</a></li>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://api.nasa.gov/api.html">API Docs</a></li>
+          </ul>
         </section>
         <section className="third-col">
-          <p>Content Info</p>
+          <h2>About Me</h2>
+          <p>Hello! My name is Albert Sare, a full stack developer based in San Francisco, CA. Check out my other works!</p>
+          <ul>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://albert-sare.netlify.com">Portfolio</a></li>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/albert-sare">LinkedIn</a></li>
+            <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/TheSundayMailman">GitHub</a></li>
+          </ul>
         </section>
       </footer>
 

@@ -12,12 +12,12 @@ const editorsPicks = [
   {
     date: '2018-02-10',
     title: 'Driving in Space',
-    caption: 'This recently launched Tesla Roadster is actually the 4th car to be in space!'
+    caption: 'Launched with SpaceX\'s Falcon Heavy rocket, this Tesla Roadster is historically the 4th car to be in space.'
   },
   {
     date: '2017-08-25',
-    title: 'Diamond Ring in the Sky',
-    caption: 'A fleeting moment in the shadow of our moon.'
+    title: 'The End-Times',
+    caption: 'Darkness engulfs the mortal realm as the sun is briefly snuffed out of existence.'
   },
   {
     date: '2016-06-19',
