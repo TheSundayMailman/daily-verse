@@ -18,6 +18,7 @@
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
+  height: auto;
 }
 
 /* Full columns */

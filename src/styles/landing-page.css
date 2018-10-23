@@ -215,6 +215,7 @@
       -ms-flex-align: stretch;
           align-items: stretch;
   padding: 3.5em 2.5em 5em 2.5em;
+  height: auto;
 }
 .editors-picks p {
   font-size: 1.5em;
