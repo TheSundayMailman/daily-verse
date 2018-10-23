@@ -17,7 +17,7 @@ const editorsPicks = [
   {
     date: '2017-08-25',
     title: 'The End-Times',
-    caption: 'Darkness engulfs the mortal plane as the sun is briefly snuffed out of existence.'
+    caption: 'Darkness engulfs the mortal plane as our sun is briefly snuffed out of existence.'
   },
   {
     date: '2016-06-19',
@@ -27,7 +27,7 @@ const editorsPicks = [
   {
     date: '2017-08-07',
     title: 'Put a Ring on It',
-    caption: 'Most galaxies don\'t have rings. But this one\'s got two.'
+    caption: 'Most galaxies don\'t have rings. But somewhow this one\'s got 2.'
   },
   {
     date: '2017-07-04',
@@ -42,7 +42,7 @@ const editorsPicks = [
   {
     date: '2017-08-05',
     title: 'Space Smiley',
-    caption: 'Nicknamed the Cheshire Cat, this galaxy group appears distored due to "gravitational lensing".'
+    caption: 'Nicknamed the Cheshire Cat, this galaxy group looks distorted due to an optical phenomenon known as "gravitational lensing".'
   },
   {
     date: '2018-09-12',

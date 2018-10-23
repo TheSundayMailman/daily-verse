@@ -33,8 +33,7 @@ class LandingPage extends React.Component {
       <article className="editors-row editors-picks">
         <section className="full-col">
           <h2>EDITOR'S PICKS</h2>
-          <p>Need some help getting started? Want some suggestions for cool wallpapers?</p>
-          <p><span id="logo">DailyVerse</span>'s got you covered. Here are some favorites in recent memory.</p>
+          <p>Need some help getting started? Want some suggestions for cool wallpapers? <span id="logo">DailyVerse</span>'s got you covered. Here are some favorites in recent memory.</p>
         </section>
         {picks}
       </article>
@@ -79,7 +78,7 @@ class LandingPage extends React.Component {
             <p>Over the last 20 years, these brilliant folks have been publishing a photo of the cosmos (almost) everyday. Each photo or video also contain a brief tidbit of what we are gazing into. The collection is ever expanding, just like our universe.</p>
           </section>
           <section className="half-col">
-            <p><span id="logo">DailyVerse</span> is powered by NASA's Astronomy Picture of the Day (aka APOD) API, which can access the entire archive between 1995 and today.</p>
+            <p><span id="logo">DailyVerse</span> is powered by NASA's Astronomy Picture of the Day (aka APoD) API, which can access the entire archive between 1995 and today.</p>
             <p>Simply pick a day, hit the button, sit back, and enjoy. If you are feeling adventurous, hit the "Random" button to jump to a random date.</p>
             <p>Links to HD images and videos are always provided. So this is also a great place to get some awesome desktop wallpaper.</p>
           </section>
@@ -101,7 +100,6 @@ class LandingPage extends React.Component {
             <p><span id="logo">DailyVerse</span> is viewable on all devices.</p>
             <p>Note: This site supports mobile and tablet devices by blocking autoplay videos and using lower resolution image backgrounds as to conserve user's bandwith.</p>
             <p>For optimal viewing experience, please visit <span id="logo">DailyVerse</span> on a desktop browser and in full-screen mode.</p>
-            <p><b>Explore the universe in its full glory.</b></p>
           </section>
         </article>
         {/* Editor's Picks */}
@@ -120,11 +118,11 @@ class LandingPage extends React.Component {
           <h2><span id="logo">DailyVerse</span></h2>
           <p>This site is powered by HTML, CSS, and React JS.</p>
           <p>All images found on <span id="logo">DailyVerse</span> belong to their respective owners as indicated in the "Copyright" section.</p>
-          <p>Astronomy Picture of the Day is provided by NASA's APOD API.</p>
+          <p>Astronomy Picture of the Day is provided by NASA's APoD API.</p>
         </section>
         <section className="third-col">
           <h2>Links</h2>
-          <p>Visit NASA's site for daily contents! Or be creative and build something by getting your APOD API!</p>
+          <p>Visit NASA's site for daily contents! Or be creative and build something by getting your APoD API key!</p>
           <ul>
             <li><a target="_blank" rel="noopener noreferrer" href="https://apod.nasa.gov/apod/astropix.html">Official Site</a></li>
             <li><a target="_blank" rel="noopener noreferrer" href="https://api.nasa.gov/api.html">API Docs</a></li>
