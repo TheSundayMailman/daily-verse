@@ -8,6 +8,8 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: stretch;
+  -webkit-box-align: center;
+  -webkit-box-direction: normal;
 }
 
 /* Full columns */

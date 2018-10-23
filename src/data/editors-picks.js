@@ -17,7 +17,7 @@ const editorsPicks = [
   {
     date: '2017-08-25',
     title: 'The End-Times',
-    caption: 'Darkness engulfs the mortal realm as the sun is briefly snuffed out of existence.'
+    caption: 'Darkness engulfs the mortal plane as the sun is briefly snuffed out of existence.'
   },
   {
     date: '2016-06-19',
@@ -37,7 +37,7 @@ const editorsPicks = [
   {
     date: '2017-10-01',
     title: 'Aircraft of Tomorrow',
-    caption: 'Concept art of a faster and greener passenger jet.'
+    caption: 'Concept art of a faster and greener passenger jet. Looks like something that came straight out of Destiny.'
   },
   {
     date: '2017-08-05',
@@ -56,7 +56,7 @@ const editorsPicks = [
   },
   {
     date: '2017-10-16',
-    title: 'The Deathly Spiral',
+    title: 'Deathly Spiral',
     caption: 'Watch as two neutron stars spiral and collide into each other, causing a spectacle of explosions and gravitational waves.'
   }
 ];
