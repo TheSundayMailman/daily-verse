@@ -1,6 +1,6 @@
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* Column container */
@@ -10,14 +10,14 @@
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+    -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  /* -webkit-box-pack: center; */
+    /* -ms-flex-pack: center; */
+      /* justify-content: center; */
   -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+    -ms-flex-align: stretch;
+      align-items: stretch;
   height: auto;
   overflow: visible;
 }
@@ -27,7 +27,7 @@
   padding: 1em;
   -webkit-box-flex: 100%;
   -ms-flex: 100%;
-      flex: 100%;
+    flex: 100%;
 }
 
 /* Half columns */
@@ -36,7 +36,7 @@
   /*  */
   -webkit-box-flex: 50%;
   -ms-flex: 50%;
-      flex: 50%;
+    flex: 50%;
 }
 
 /* Thirds columns */
@@ -44,7 +44,7 @@
   padding: 1em;
   -webkit-box-flex: 33.33%;
     -ms-flex: 33.33%;
-        flex: 33.33%;
+      flex: 33.33%;
 }
 
 /* Quarter columns */
@@ -52,7 +52,7 @@
   padding: 1em;
   -webkit-box-flex: 25%;
   -ms-flex: 25%;
-      flex: 25%;
+    flex: 25%;
 }
 
 /* Responsive layout - when the screen is less than 640px wide, make the two columns stack on top of each other instead of next to each other */
@@ -60,7 +60,7 @@
   .flex-row {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-flow: column wrap;
-            flex-flow: column wrap;
+      -ms-flex-flow: column wrap;
+        flex-flow: column wrap;
   }
 }
