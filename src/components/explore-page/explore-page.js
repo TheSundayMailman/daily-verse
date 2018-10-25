@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import DateInput from './date-input.js';
 import ContentDetails from './content-details.js';
 
-import '../styles/dashboard.css';
+import './explore-page.css';
 
 // Media Query Listener
 // for loading either HD or normal images depending on whether viewport is 800px or greater
 const mql = window.matchMedia('(min-width: 800px)');
 
-class DashBoard extends React.Component {
+class ExplorePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hideDisplay: false };
@@ -101,4 +101,4 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-export default connect(mapStateToProps)(DashBoard);
+export default connect(mapStateToProps)(ExplorePage);

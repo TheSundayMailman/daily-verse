@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { fetchPOD } from '../actions/pod.js';
+import { fetchPOD } from '../../actions/pod.js';
 
-import '../styles/landing-page.css';
+import './landing-page.css';
 
 class LandingPage extends React.Component {
   submitEditorDate(editorDate) {
@@ -20,7 +20,7 @@ class LandingPage extends React.Component {
       return (
         <section className="editors-item" key={index}>
         <div className="item-container">
-          <img src={require(`../assets/${each.date}.jpg`)} alt="Editor's Pick" />
+          <img src={require(`../data/${each.date}.jpg`)} alt="Editor's Pick" />
           <h3>{each.title}</h3>
           <p>{each.caption}</p>
           <button onClick={() => this.submitEditorDate(each.date)}>Go</button>
@@ -94,7 +94,7 @@ class LandingPage extends React.Component {
             <h2>EXPERIENCE</h2>
           </section>
           <section className="left-col">
-            <img id="preview" src={require('../assets/combined.png')} alt="Desktop and mobile preview." />
+            <img id="preview" src={require('../assets/devices.png')} alt="Desktop and mobile preview." />
           </section>
           <section className="right-col">
             <p><span id="logo">DailyVerse</span> is viewable on all devices.</p>

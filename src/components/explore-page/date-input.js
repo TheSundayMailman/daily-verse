@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchPOD } from '../actions/pod.js';
+import { fetchPOD } from '../../actions/pod.js';
 
-import '../styles/date-input.css';
+import './date-input.css';
 
 const moment = require('moment');
 
