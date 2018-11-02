@@ -75,3 +75,34 @@
     left: -100%;
   }
 }
+
+
+
+/* Below are rules for mobile view, which overrides DateInput and ContentDetails */
+@media screen and (min-width: 420px), screen and (min-width: 840px) and (orientation: landscape) {
+  .mobile-media {
+    display: none;
+  }
+}
+/* Force everything to be visible in mobile view */
+@media screen and (max-width: 420px), screen and (max-width: 840px) and (orientation: landscape) {
+  .hidden {
+    opacity: 1;
+  }
+  .image-background, .video-background, .video-foreground {
+    display: none;
+  }
+  .mobile-media {
+    display: flex;
+    flex-flow: column wrap;
+    margin: 65px 1em 1em 1em;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+  }
+  .mobile-media img, .mobile-media iframe {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 5px;
+  }
+}

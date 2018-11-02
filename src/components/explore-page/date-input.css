@@ -29,6 +29,7 @@
   border: 1px solid white;
 }
 .submit-button {
+  display: inline-block;
   margin-right: 0.25rem;
   padding: 0.25rem;
   color: white;
@@ -58,5 +59,31 @@
   }
   .date-input #logo {
     font-size: 0.5em;
+  }
+}
+
+/* Mobile view rules */
+@media screen and (max-width: 420px), screen and (max-width: 840px) and (orientation: landscape) {
+  .view-button {
+    display: none;
+  }
+  .date-input {
+    top: 0;
+    width: 100%;
+    padding: 0.5em;
+    background: black;
+    border-bottom: 1px solid white;
+  }
+  .date-input h1, .date-input label, .date-input hr, .date-input br {
+    display: none;
+  }
+  .date-input .submit-button {
+    display: inline-block;
+    margin: 0.25em;
+    font-size: 0.8em;
+  }
+  .date-input form {
+    float: right;
+    font-size: 0.9em;
   }
 }

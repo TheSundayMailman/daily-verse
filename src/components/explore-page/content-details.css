@@ -44,8 +44,15 @@
     margin-bottom: .2rem;
   }
 }
-@media all and (max-width: 500px) {
-  .content-info .acronym {
-    display: none;
+
+/* Mobile view rules */
+@media screen and (max-width: 420px), screen and (max-width: 840px) and (orientation: landscape) {
+  .content-info {
+    position: static;
+    width: 100%;
+    padding: 1em;
+  }
+  .content-info a {
+    background: rgb(75, 75, 75);
   }
 }

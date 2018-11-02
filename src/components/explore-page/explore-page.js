@@ -73,6 +73,27 @@ class ExplorePage extends React.Component {
     )
   }
 
+  renderMobileMedia() {
+    if (this.props.currentPOD.media_type === 'video') {
+      return (
+        <div className="mobile-media">
+          <div className="media-container">
+            <iframe title="embedded-video" src={this.props.currentPOD.url}></iframe>
+          </div>
+        </div>
+      );
+    }
+    if (this.props.currentPOD.media_type === 'image') {
+      return (
+        <div className="mobile-media">
+          <div className="media-container">
+            <img src={this.props.currentPOD.url} alt="APoD" />
+          </div>
+        </div>
+      );
+    }
+  }
+
   renderDisplayButton() {
     let buttonText = this.state.hideDisplay ? 'Show Details' : 'Hide Details';
     return (
@@ -84,9 +105,10 @@ class ExplorePage extends React.Component {
     let isHidden = this.state.hideDisplay ? 'hidden' : 'visible';
     return (
       <main className="explore">
+        <div className={isHidden}><DateInput /></div>
         {this.renderBackground()}
         {this.renderDisplayButton()}
-        <div className={isHidden}><DateInput /></div>
+        {this.renderMobileMedia()}
         <div className={isHidden}><ContentDetails /></div>
       </main>
     );

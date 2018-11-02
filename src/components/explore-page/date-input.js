@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchPOD } from '../../actions/pod.js';
 
+import './explore-page.css';
 import './date-input.css';
 
 const moment = require('moment');
@@ -63,13 +64,13 @@ class DateInput extends React.Component {
 
   renderGoButton() {
     if (this.props.loading) {
-      return (<input className="submit-button" type="submit" value="Warp!" disabled />);
+      return (<input className="submit-button" type="submit" value="Go" disabled />);
     }
     if (this.state.currentDate &&
       (moment(this.state.currentDate).format('YYYY-MM-DD') === moment(this.props.date).format('YYYY-MM-DD'))) {
-      return (<input className="submit-button" type="submit" value="Warp!" disabled />);
+      return (<input className="submit-button" type="submit" value="Go" disabled />);
     }
-    return (<input className="submit-button" type="submit" value="Warp!" />);
+    return (<input className="submit-button" type="submit" value="Go" />);
   }
 
   renderPrevButton() {
