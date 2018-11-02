@@ -74,20 +74,22 @@ class ExplorePage extends React.Component {
   }
 
   renderMobileMedia() {
-    if (this.props.currentPOD.media_type === 'video') {
+    let { media_type, url } = this.props.currentPOD;
+    if (!url) url = require('../assets/not-found.gif');
+    if (media_type === 'video') {
       return (
         <div className="mobile-media">
           <div className="media-container">
-            <iframe title="embedded-video" src={this.props.currentPOD.url}></iframe>
+            <iframe title="embedded-video" src={url}></iframe>
           </div>
         </div>
       );
     }
-    if (this.props.currentPOD.media_type === 'image') {
+    else {
       return (
         <div className="mobile-media">
           <div className="media-container">
-            <img src={this.props.currentPOD.url} alt="APoD" />
+            <img src={url} alt="APoD" />
           </div>
         </div>
       );

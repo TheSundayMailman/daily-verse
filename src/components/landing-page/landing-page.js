@@ -108,7 +108,7 @@ class LandingPage extends React.Component {
         <article className="flex-row action">
           <section className="full-col">
             <h1>Stay awhile. Relax.</h1>
-            <Link to="/explore">Wonder</Link>
+            <Link to="/explore">Wonder.</Link>
           </section>
         </article>
       </main>

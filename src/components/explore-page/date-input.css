@@ -63,7 +63,7 @@
 }
 
 /* Mobile view rules */
-@media screen and (max-width: 420px), screen and (max-width: 840px) and (orientation: landscape) {
+@media screen and (max-width: 420px), screen and (max-width: 840px) and (max-height: 420px) and (orientation: landscape) {
   .view-button {
     display: none;
   }

@@ -85,7 +85,7 @@
   }
 }
 /* Force everything to be visible in mobile view */
-@media screen and (max-width: 420px), screen and (max-width: 840px) and (orientation: landscape) {
+@media screen and (max-width: 420px), screen and (max-width: 840px) and (max-height: 420px) and (orientation: landscape) {
   .hidden {
     opacity: 1;
   }

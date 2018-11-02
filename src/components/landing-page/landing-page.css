@@ -42,7 +42,7 @@
   }
 }
 
-/* Attract */
+/* Header, contains 'attract' items */
 .attract-video-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -102,6 +102,15 @@
     font-size: 1em;
   }
 }
+/* Hide video on mobile devices to prevent autoplay */
+@media screen and (max-width: 420px), screen and (max-width: 840px) and (max-height: 420px) and (orientation: landscape) {
+  .attract-video-container {
+    background-image: url(../assets/timelapse.gif);
+  }
+  #attract-video {
+    display: none;
+  }
+}
 
 /* Intro */
 .intro {
@@ -135,7 +144,7 @@
     font-size: 2em;
   }
   .intro p {
-    font-size: 1.5em;
+    font-size: 1.25em;
   }
 }
 
@@ -367,6 +376,12 @@
 @media screen and (max-width: 640px) {
   .action {
     min-height: 320px;
+  }
+  .action h1 {
+    font-size: 3em;
+  }
+  .action a {
+    font-size: 1em;
   }
 }
 
